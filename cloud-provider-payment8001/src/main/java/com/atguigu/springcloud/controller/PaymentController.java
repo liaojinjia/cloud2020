@@ -4,10 +4,7 @@ import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -36,7 +33,7 @@ public class PaymentController {
      * http://localhost:8001/payment/create?serial=atguigu002
      */
     @PostMapping(value = "/payment/create") //浏览器不支持Post请求，用postman模拟
-    public CommonResult create(Payment payment) {
+    public CommonResult create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);
         log.info("****插入结果:" +result);
 
@@ -55,11 +52,11 @@ public class PaymentController {
      * @Date 2020/7/2 17:20
      */
     @GetMapping(value = "/payment/get/{id}")
-    public CommonResult getPaymentById(@PathVariable("id") Long id ) {
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id ) {
         Payment payment = paymentService.getPaymentById(id);
-        log.info("*******插入结果"+ payment);
+        log.info("*******插入结果"+"O(∩_∩)O"+ payment);
         if(payment != null) {
-            return new CommonResult(200,"查询成功",payment);
+            return new CommonResult(200,"查询成功"+"(￣▽￣)",payment);
         }else {
             return new CommonResult(200,"没有查询记录，查询Id:"+id,null);
         }
