@@ -11,6 +11,7 @@
       <module>cloud-provider-payment8001</module>
       <module>cloud-consumer-order80</module>
         <module>cloud-api-commons</module>
+        <module>cloud-eureka-server7001</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -86,6 +87,13 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+
+            <!--<dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <scope>runtime</scope>
+                <optional>true</optional>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 

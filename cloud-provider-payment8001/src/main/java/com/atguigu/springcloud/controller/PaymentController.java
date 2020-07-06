@@ -40,7 +40,7 @@ public class PaymentController {
         if(result > 0) {
             return new CommonResult(200,"插入成功",result);
         }else {
-            return new CommonResult(200,"插入失败",null);
+            return new CommonResult(444,"插入失败",null);
         }
     }
     /**
@@ -58,7 +58,7 @@ public class PaymentController {
         if(payment != null) {
             return new CommonResult(200,"查询成功"+"(￣▽￣)",payment);
         }else {
-            return new CommonResult(200,"没有查询记录，查询Id:"+id,null);
+            return new CommonResult(444,"没有查询记录，查询Id:"+id,null);
         }
     }
 }
